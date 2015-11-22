@@ -1,0 +1,22 @@
+{
+  "name": "quick",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxcarter/Quick.git"
+  },
+  "author": "Maxwell Carter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxcarter/Quick/issues"
+  },
+  "homepage": "https://github.com/maxcarter/Quick#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
