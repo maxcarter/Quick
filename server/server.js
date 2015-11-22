@@ -10,7 +10,7 @@ app.get('/', function(req, res){
 	res.send('Hello World');
 });
 
-app.use('/api', require('./api/api'));
+require('./api/api')(app);
 
 app.listen(3000);
 console.log("Hello World");
