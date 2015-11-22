@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost/quick');
 
 app.use(express.static('../dist'));
+app.use('/dev', express.static('../app')); 
 
 require('./api/api')(app);
 
