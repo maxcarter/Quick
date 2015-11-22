@@ -6,6 +6,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+mongoose.connect('mongodb://localhost/quick');
+
 app.get('/', function(req, res){
 	res.send('Hello World');
 });

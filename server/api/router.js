@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/test', function(req, res){
-	res.send('Router is working');
-});
+require('./v1/routes/routes')(router);
 
 module.exports = router;
