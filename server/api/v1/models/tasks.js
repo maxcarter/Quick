@@ -79,6 +79,9 @@ var schema = new mongoose.Schema({
     },
     comments: {
         type: [comment]
+    },
+    tags: {
+        type: [String]
     }
 });
 
