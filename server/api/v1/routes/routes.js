@@ -6,4 +6,8 @@ module.exports = function(router) {
     var Tasks = require('../models/tasks');
     Tasks.methods(['get', 'put', 'post', 'delete']);
     Tasks.register(router, '/tasks');
+
+    var Sprints = require('../models/sprints');
+    Sprints.methods(['get', 'put', 'post', 'delete']);
+    Sprints.register(router, '/sprints');
 }
