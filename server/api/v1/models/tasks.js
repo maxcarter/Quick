@@ -26,10 +26,12 @@ var comment = new mongoose.Schema({
     },
     dateCreated: {
         type: Date,
+        required: true,
         default: Date.now
     },
     dateUpdated: {
         type: Date,
+        required: true,
         default: Date.now
     }
 });
@@ -45,14 +47,17 @@ var schema = new mongoose.Schema({
     },
     dateCreated: {
         type: Date,
+        required: true,
         default: Date.now
     },
     dateUpdated: {
         type: Date,
+        required: true,
         default: Date.now
     },
     body: {
         type: String,
+        required: true,
         default: ""
     },
     name: {
@@ -61,10 +66,12 @@ var schema = new mongoose.Schema({
     },
     status: {
         type: String,
+        required: true,
         default: "Open"
     },
     type: {
         type: String,
+        required: true,
         default: "Task"
     },
     subTasks: {
