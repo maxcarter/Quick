@@ -39,6 +39,7 @@ var comment = new mongoose.Schema({
 var schema = new mongoose.Schema({
     assignee: {
         type: String,
+        default: "Unassigned",
         required: true
     },
     creator: {
@@ -58,7 +59,7 @@ var schema = new mongoose.Schema({
     body: {
         type: String,
         required: true,
-        default: ""
+        default: " "
     },
     name: {
         type: String,
