@@ -1,5 +1,5 @@
 <div>
-    <h1 class="page-header">Search</h1>
+    <h1 class="page-header">Search <small>{{type}}</small></h1>
     <div id="alert-container"></div>
     <form class="form-horizontal" role="search">
         <div class="input-group">
@@ -8,28 +8,13 @@
         </div>
     </form>
     <br>
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Assignee</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Created</th>
-                    <th>Updated</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="task in tasks">
-                    <td>{{task.name}}</td>
-                    <td>{{task.assignee}}</td>
-                    <td>{{task.type}}</td>
-                    <td>{{task.status}}</td>
-                    <td>{{task.dateCreated}}</td>
-                    <td>{{task.dateUpdated}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div ng-switch="type">
+        <div ng-switch-when="tasks">
+        	<div ng-include="'partials/tables/tasks.html'"></div>
+        </div>
+        <div ng-switch-when="sprints">
+        	<div ng-include="'partials/tables/sprints.html'"></div>
+        </div>
+        <div ng-switch-default></div>
     </div>
 </div>
