@@ -31,6 +31,12 @@ a.inverted:hover {
     }
 }
 
+/* Search */
+
+.pageination .pull-right {
+    margin-right: 20px;
+}
+
 
 /* Side Navigation */
 
