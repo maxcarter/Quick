@@ -10,9 +10,12 @@
     <br>
     <div ng-switch="type">
         <div ng-switch-when="tickets">
-            <div ng-include="'partials/pagination/tickets.html'"></div>
-            <div ng-include="'partials/tables/tickets.html'"></div>
-            <div ng-include="'partials/pagination/tickets.html'"></div>
+            <div ng-show="tickets.length > 0" ng-include="'partials/pagination/tickets.html'"></div>
+            <div ng-show="tickets.length > 0" ng-include="'partials/tables/tickets.html'"></div>
+            <div ng-show="tickets.length > 0" ng-include="'partials/pagination/tickets.html'"></div>
+            <div ng-hide="tickets.length > 0">
+                <i class="fa fa-warning"></i> No tickets match your request!
+            </div>
         </div>
         <div ng-switch-when="sprints">
             <div ng-include="'partials/tables/sprints.html'"></div>

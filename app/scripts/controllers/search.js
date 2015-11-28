@@ -47,6 +47,7 @@ angular.module('quickApp')
 
         $scope.queryParams = $location.search();
         $scope.startAt = ($scope.queryParams.startAt) ? parseInt($scope.queryParams.startAt) : 1;
+        $scope.query = $scope.queryParams.name;
         $scope.params = {
             limit: ($scope.queryParams.limit) ? parseInt($scope.queryParams.limit) : 25,
             skip: ($scope.queryParams.skip) ? parseInt($scope.queryParams.skip) : 0,
