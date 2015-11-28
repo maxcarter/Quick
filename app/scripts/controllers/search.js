@@ -35,6 +35,9 @@ angular.module('quickApp')
                     break;
             }
         };
+        $scope.searchByName = function (query) {
+            $location.search("name", query);
+        };
 
         $scope.request = Request;
         $scope.time = Time;
@@ -48,6 +51,7 @@ angular.module('quickApp')
             limit: ($scope.queryParams.limit) ? parseInt($scope.queryParams.limit) : 25,
             skip: ($scope.queryParams.skip) ? parseInt($scope.queryParams.skip) : 0,
             sort: ($scope.queryParams.sort) ? $scope.queryParams.sort : "dateCreated",
+            name__regex: ($scope.queryParams.name) ? "/" + $scope.queryParams.name + "/i" : null,
         };
         if ($scope.startAt) {
             $scope.params.skip = $scope.startAt - 1;
