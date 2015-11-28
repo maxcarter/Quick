@@ -16,14 +16,15 @@ angular.module('quickApp')
         ];
 
         $scope.jump = function(position, size, direction) {
+            var spot;
             switch (direction) {
                 case "fwd":
-                    var spot = position + size - 1;
+                    spot = position + size - 1;
                     $location.search("startAt", spot + 1);
                     $location.search("skip", spot);
                     break;
                 case "bkwd":
-                    var spot = position - size;
+                    spot = position - size;
                     if (spot >= 0) {
                         $location.search("startAt", spot);
                         $location.search("skip", spot - 1);
@@ -33,7 +34,7 @@ angular.module('quickApp')
                     }
                     break;
             }
-        }
+        };
 
         $scope.request = Request;
         $scope.config = config;
@@ -53,8 +54,8 @@ angular.module('quickApp')
         $scope.request.get($scope.url + "/" + $scope.type, $scope.params).then(
             function(response) {
                 switch ($scope.type) {
-                    case "tasks":
-                        $scope.tasks = response.data;
+                    case "tickets":
+                        $scope.tickets = response.data;
                         break;
                     case "sprints":
                         $scope.sprints = response.data;

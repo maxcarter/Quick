@@ -1,7 +1,7 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var subTask = new mongoose.Schema({
+var subTicket = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -75,8 +75,8 @@ var schema = new mongoose.Schema({
         required: true,
         default: "Task"
     },
-    subTasks: {
-        type: [subTask]
+    subTickets: {
+        type: [subTicket]
     },
     comments: {
         type: [comment]
@@ -86,4 +86,4 @@ var schema = new mongoose.Schema({
     }
 });
 
-module.exports = restful.model('Tasks', schema);
+module.exports = restful.model('Ticket', schema);

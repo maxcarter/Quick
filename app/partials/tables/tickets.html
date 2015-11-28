@@ -11,13 +11,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="task in tasks">
-                <td>{{task.name}}</td>
-                <td>{{task.assignee}}</td>
-                <td>{{task.type}}</td>
-                <td>{{task.status}}</td>
-                <td>{{task.dateCreated}}</td>
-                <td>{{task.dateUpdated}}</td>
+            <tr ng-repeat="ticket in tickets">
+                <td>{{ticket.name}}</td>
+                <td>{{ticket.assignee}}</td>
+                <td>{{ticket.type}}</td>
+                <td>{{ticket.status}}</td>
+                <td>{{ticket.dateCreated}}</td>
+                <td>{{ticket.dateUpdated}}</td>
             </tr>
         </tbody>
     </table>
