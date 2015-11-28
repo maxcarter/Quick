@@ -33,6 +33,7 @@ module.exports = function(config) {
       'app/bower_components/angular-touch/angular-touch.js',
       'app/bower_components/angular-strap/dist/angular-strap.js',
       'app/bower_components/angular-strap/dist/angular-strap.tpl.js',
+      'app/bower_components/moment/moment.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

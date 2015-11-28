@@ -16,8 +16,8 @@
                 <td>{{ticket.assignee}}</td>
                 <td>{{ticket.type}}</td>
                 <td>{{ticket.status}}</td>
-                <td>{{ticket.dateCreated}}</td>
-                <td>{{ticket.dateUpdated}}</td>
+                <td>{{time.parse(ticket.dateCreated)}}</td>
+                <td>{{time.parse(ticket.dateUpdated)}}</td>
             </tr>
         </tbody>
     </table>

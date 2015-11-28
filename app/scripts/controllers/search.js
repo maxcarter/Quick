@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('SearchCtrl', function($scope, $alert, $routeParams, $location, Request, config) {
+    .controller('SearchCtrl', function($scope, $alert, $routeParams, $location, Request, Time, config) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -37,6 +37,7 @@ angular.module('quickApp')
         };
 
         $scope.request = Request;
+        $scope.time = Time;
         $scope.config = config;
         $scope.url = config.host + ":" + config.port + config.api;
         $scope.type = $routeParams.type;
