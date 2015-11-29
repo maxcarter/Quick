@@ -25,11 +25,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
+    <div ng-include="'views/navbar.html'"></div>
     <div id="wrapper">
-        <div ng-include="'views/navbar.html'"></div>
         <div id="page-wrapper">
             <div class="container-fluid">
-                <div ng-view=""></div>
+                <div ng-view></div>
             </div>
         </div>
     </div>
@@ -58,6 +58,7 @@
     <script src="scripts/services/config.js"></script>
     <script src="scripts/services/time.js"></script>
     <script src="scripts/services/query.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
     <!-- endbuild -->
 </body>
 

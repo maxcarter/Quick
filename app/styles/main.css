@@ -4,16 +4,20 @@ body {
 }
 
 .inverted {
-  background-color: #222222;
-  color: #9d9d9d !important;
+    background-color: #222222;
+    color: #9d9d9d !important;
 }
+
 a.inverted:hover {
-  background-color: #000000!important;
-  color: #9d9d9d !important;
+    background-color: #000000!important;
+    color: #9d9d9d !important;
 }
 
 #wrapper {
     padding-left: 0;
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
 }
 
 #page-wrapper {
@@ -24,12 +28,13 @@ a.inverted:hover {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 235px;
     }
     #page-wrapper {
         padding: 10px;
     }
 }
+
 
 /* Search */
 
@@ -79,7 +84,6 @@ a.inverted:hover {
 .side-nav>li>ul>li>a:hover {
     color: #fff;
 }
-
 
 /* Yeoman */
 
