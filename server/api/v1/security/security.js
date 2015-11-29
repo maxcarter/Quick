@@ -4,11 +4,11 @@ module.exports = {
     hash_password: function(req, res, next) {
         bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
             if (err) {
-                return console.error(err);
+                throw err;
             }
             bcrypt.hash(req.body.password, salt, function(err, hash) {
                 if (err) {
-                    return console.error(err);
+                    throw err;
                 }
                 req.body.password = hash;
                 next();
