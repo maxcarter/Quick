@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
-var jwt = require('jsonwebtoken');
+
 
 var config = require('./config');
 var app = express();
