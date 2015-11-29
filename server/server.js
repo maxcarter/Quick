@@ -10,7 +10,6 @@ var app = express();
 var port = 3000;
 
 mongoose.connect(config.database);
-app.set('superSecret', config.secret);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

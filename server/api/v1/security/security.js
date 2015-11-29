@@ -1,6 +1,7 @@
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
+var secret = "AnyPhraseYouWant";
 
 module.exports = {
     hash_password: function(req, res, next) {
@@ -25,16 +26,11 @@ module.exports = {
                 success: false,
                 message: "Authentication failed. User not found."
             };
+            return response;
         } else if (user) {
-            if (user.password !== req.body.password) {
-                response = {
-                    status: 401,
-                    success: false,
-                    message: "Authentication failed. Wrong password."
-                };
-
-            } else {
-                var token = jwt.sign(user, app.get('superSecret'), {
+            var matched = bcrypt.compareSync(req.body.password, user.password);
+            if (matched) {
+                var token = jwt.sign(user, secret, {
                     expiresInMinutes: 1440 // expires in 24 hours
                 });
                 response = {
@@ -43,8 +39,17 @@ module.exports = {
                     message: "Enjoy your token!",
                     token: token
                 };
+                return response;
+            } else {
+                response = {
+                    status: 401,
+                    success: false,
+                    message: "Authentication failed. Wrong password."
+                };
+                return response;
             }
+
         }
-        return response;
+
     }
 };
