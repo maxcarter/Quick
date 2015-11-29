@@ -20,11 +20,6 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
@@ -41,6 +36,6 @@ angular
         controllerAs: 'search'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/dashboard'
       });
   });
