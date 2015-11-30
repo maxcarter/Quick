@@ -34,8 +34,8 @@
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                        <input type="text" class="form-control" placeholder="Search">
+                        <a class="input-group-addon" href="#/search/tickets?name={{quickSearchQuery}}"><i class="fa fa-search"></i></a>
+                        <input type="text" ng-model="quickSearchQuery" class="form-control" placeholder="Search">
                     </div>
                 </div>
             </form>
