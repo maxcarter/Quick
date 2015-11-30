@@ -59,6 +59,22 @@ angular.module('quickApp')
                             container: '#alert-container'
                         });
                     });
+            },
+            checkToken: function() {
+                var token = false;
+                if (config.username && config.token) {
+                    token = true;
+                } else {
+                    var stored = $cookies.getObject('quickApp');
+                    if (stored) {
+                        if (stored.username && stored.token) {
+                            config.username = stored.username;
+                            config.token = stored.token;
+                            token = true;
+                        }
+                    }
+                }
+                return token;
             }
         };
     });
