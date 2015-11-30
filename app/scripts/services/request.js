@@ -12,6 +12,7 @@ angular.module('quickApp')
         return {
             request: function(method, url, params, data) {
                 var deferred = $q.defer();
+                params = (params) ? params : {};
                 params.token = (config.token) ? config.token : null;
                 var request = {
                     method: method,
