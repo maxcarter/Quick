@@ -8,10 +8,11 @@
  * Factory in the quickApp.
  */
 angular.module('quickApp')
-    .factory('Request', function($http, $q) {
+    .factory('Request', function($http, $q, config) {
         return {
             request: function(method, url, params, data) {
                 var deferred = $q.defer();
+                params.token = (config.token) ? config.token : null;
                 var request = {
                     method: method,
                     url: url,

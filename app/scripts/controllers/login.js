@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('LoginCtrl', function($scope, $alert, $location, $cookies, Request, config) {
+    .controller('LoginCtrl', function($scope, $alert, $location, $cookies, $rootScope, Request, config) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -51,6 +51,7 @@ angular.module('quickApp')
                         username: username,
                         token: response.data.token
                     });
+                    $rootScope.$broadcast("login-done");
                     $location.url("/dashboard");
                 },
                 function error(response) {
