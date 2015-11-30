@@ -29,6 +29,7 @@ angular.module('quickApp')
                     $scope.username = response.data[0].username;
                 },
                 function error(response) {
+                	console.log(response);
                     $location.url("/login");
                 });
         };
