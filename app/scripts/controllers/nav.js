@@ -34,6 +34,10 @@ angular.module('quickApp')
                 });
         };
 
+        $rootScope.$on("login-done", function() {
+            $scope.getUser(config.username, config.token);
+        });
+
         $rootScope.$on('$routeChangeStart', function(event, next, current) {
             if ($scope.path !== "/login") {
                 if (!Login.checkToken()) {

@@ -46,6 +46,7 @@ angular.module('quickApp')
                             username: username,
                             token: response.data.token
                         });
+                        $rootScope.$broadcast("login-done");
                         $location.url("/dashboard");
                     },
                     function error(response) {
