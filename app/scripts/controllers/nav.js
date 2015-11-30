@@ -15,6 +15,7 @@ angular.module('quickApp')
             'Karma'
         ];
         $scope.config = config;
+        $scope.login = Login;
         $scope.url = config.host + ":" + config.port + config.api;
         $scope.path = $location.path();
 
@@ -28,21 +29,18 @@ angular.module('quickApp')
                     $scope.displayName = response.data[0].displayName;
                 },
                 function error(response) {
-                	console.log(response);
+                    console.log(response);
                     $location.url("/login");
                 });
         };
 
-        $rootScope.$on("login-done", function() {
-            $scope.getUser(config.username, config.token);
+        $rootScope.$on('$routeChangeStart', function(event, next, current) {
+            if ($scope.path !== "/login") {
+                if (!Login.checkToken()) {
+                    $location.path('/login');
+                } else {
+                    $scope.getUser(config.username, config.token);
+                }
+            }
         });
-
-        if ($scope.path !== "/login") {
-        	var token = Login.checkToken();
-        	if(token) {
-        		$scope.getUser(config.username, config.token);
-        	} else {
-        		$location.url("/login");
-        	}
-        }
     });
