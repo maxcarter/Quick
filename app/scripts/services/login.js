@@ -46,7 +46,6 @@ angular.module('quickApp')
                             username: username,
                             token: response.data.token
                         });
-                        $rootScope.$broadcast("login-done");
                         $location.url("/dashboard");
                     },
                     function error(response) {
@@ -75,6 +74,15 @@ angular.module('quickApp')
                     }
                 }
                 return token;
+            },
+            logout: function() {
+                var token = this.checkToken();
+                if(token) {
+                    config.username = null;
+                    config.token = null;
+                    $cookies.remove('quickApp');
+                    $location.url("/login");
+                }
             }
         };
     });
