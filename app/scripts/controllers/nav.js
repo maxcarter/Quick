@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('NavCtrl', function($scope, $location, $cookies, $rootScope, Request, config) {
+    .controller('NavCtrl', function($scope, $location, $cookies, $rootScope, Request, Login, config) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -21,12 +21,11 @@ angular.module('quickApp')
         $scope.getUser = function(username, token) {
             var params = {
                 username: username,
-                token: token,
                 limit: 1
             };
             Request.get($scope.url + "/users", params).then(
                 function success(response) {
-                    $scope.username = response.data[0].username;
+                    $scope.displayName = response.data[0].displayName;
                 },
                 function error(response) {
                 	console.log(response);
@@ -39,21 +38,11 @@ angular.module('quickApp')
         });
 
         if ($scope.path !== "/login") {
-            if (config.username && config.token) {
-                $scope.getUser(config.username, config.token);
-            } else {
-                var stored = $cookies.getObject('quickApp');
-                if (stored) {
-                    if (stored.username && stored.token) {
-                        config.username = stored.username;
-                        config.token = stored.token;
-                        $scope.getUser(stored.username, stored.token);
-                    } else {
-                        $location.url("/login");
-                    }
-                } else {
-                    $location.url("/login");
-                }
-            }
+        	var token = Login.checkToken();
+        	if(token) {
+        		$scope.getUser(config.username, config.token);
+        	} else {
+        		$location.url("/login");
+        	}
         }
     });
