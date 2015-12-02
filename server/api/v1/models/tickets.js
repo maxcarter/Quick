@@ -37,6 +37,11 @@ var comment = new mongoose.Schema({
 });
 
 var schema = new mongoose.Schema({
+    project: {
+        type: String,
+        default: "Unassigned",
+        required: true
+    },
     assignee: {
         type: String,
         default: "Unassigned",
@@ -74,6 +79,9 @@ var schema = new mongoose.Schema({
         type: String,
         required: true,
         default: "Task"
+    },
+    key: {
+        type: Number
     },
     subTickets: {
         type: [subTicket]

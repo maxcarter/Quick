@@ -49,4 +49,12 @@ module.exports = function(router) {
     Sprints.before('post', security.check_token);
     Sprints.before('delete', security.check_token);
     Sprints.register(router, '/sprints');
+
+    var Projects = require('../models/projects');
+    Projects.methods(['get', 'put', 'post', 'delete']);
+    Projects.before('get', security.check_token);
+    Projects.before('put', security.check_token);
+    Projects.before('post', security.check_token);
+    Projects.before('delete', security.check_token);
+    Projects.register(router, '/projects');
 }
