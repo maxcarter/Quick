@@ -52,6 +52,11 @@ var schema = new mongoose.Schema({
         default: "Unassigned",
         required: true
     },
+    reporter: {
+        type: String,
+        default: "Unassigned",
+        required: true
+    },
     creator: {
         type: String,
         required: true
