@@ -42,6 +42,37 @@ a.inverted:hover {
     margin-right: 20px;
 }
 
+/* Custom */
+.panel-green{
+    border-color: #5CB85C;
+}
+.panel-green > .panel-heading {
+    color: #fff;
+    background-color: #5CB85C;
+    border-color: #5CB85C;
+}
+.panel-orange{
+    border-color: #F0AD4E;
+}
+.panel-orange > .panel-heading {
+    color: #fff;
+    background-color: #F0AD4E;
+    border-color: #F0AD4E;
+}
+.panel-red{
+    border-color: #D9534F;
+}
+.panel-red > .panel-heading {
+    color: #fff;
+    background-color: #D9534F;
+    border-color: #D9534F;
+}
+.query-bar {
+    padding-top:10px;
+    padding-bottom:10px;
+    display:block;
+}
+
 
 /* Side Navigation */
 

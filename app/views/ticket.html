@@ -1,11 +1,22 @@
 <div>
-    <h1 class="page-header">{{_ticket.name}} <small>{{_ticket.project}}</small></h1>
+    <h1 class="page-header">{{_ticket.name}}</h1>
     <div id="alert-container"></div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <ol class="breadcrumb">
+        <li class="active">
+            <i class="fa fa-car"></i> <a href="#/project/{{_ticket.project}}">{{_ticket.project}}</a> / {{_ticket.name}}
+        </li>
+    </ol>
+    <div class="query-bar">
+        <button class="btn btn-default" title="Edit"><i class="fa fa-pencil"></i></button>
+        <button class="btn btn-default" title="Start Progress"><i class="fa fa-play"></i></button>
+        <button class="btn btn-default" title="Resolve"><i class="fa fa-check"></i></button>
+        <button class="btn btn-default" title="Notify"><i class="fa fa-envelope"></i></button>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#details">
             <h3 class="panel-title"><i class="fa fa-info-circle"></i> Details</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-collapse collapse in" id="details">
             <div class="row">
                 <div class="col-md-6">
                     <div class="table-responsive">
@@ -27,6 +38,10 @@
                                     <th>Project</th>
                                     <td>{{_ticket.project}}</td>
                                 </tr>
+                                <tr>
+                                    <th>Tags</th>
+                                    <td></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -38,6 +53,10 @@
                                 <tr>
                                     <th>Assignee</th>
                                     <td>{{_ticket.assignee}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Reporter</th>
+                                    <td>{{_ticket.reporter}}</td>
                                 </tr>
                                 <tr>
                                     <th>Creator</th>
@@ -58,27 +77,27 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="panel panel-green">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#description">
             <h3 class="panel-title"><i class="fa fa-file-text"></i> Description</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-collapse collapse in" id="description">
             {{_ticket.body}}
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="panel panel-orange">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#relations">
             <h3 class="panel-title"><i class="fa fa-paperclip"></i> Relations</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-collapse collapse" id="relations">
             Panel content
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="panel panel-red">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#activity">
             <h3 class="panel-title"><i class="fa fa-comments"></i> Activity</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-collapse collapse" id="activity">
             Panel content
         </div>
     </div>

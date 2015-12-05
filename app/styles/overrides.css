@@ -3,3 +3,9 @@
 .input-group-addon {
     background: #ffffff;
 }
+.breadcrumb {
+	margin: 0px;
+}
+.finger {
+	cursor:pointer;
+}
