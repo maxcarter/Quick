@@ -1,7 +1,7 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var subTicket = new mongoose.Schema({
+var relatedTicket = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -88,8 +88,8 @@ var schema = new mongoose.Schema({
     key: {
         type: Number
     },
-    subTickets: {
-        type: [subTicket]
+    relations: {
+        type: [relatedTicket]
     },
     comments: {
         type: [comment]
