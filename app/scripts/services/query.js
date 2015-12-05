@@ -16,16 +16,13 @@ angular.module('quickApp')
                     case "fwd":
                         spot = position + size - 1;
                         $location.search("startAt", spot + 1);
-                        $location.search("skip", spot);
                         break;
                     case "bkwd":
                         spot = position - size;
                         if (spot >= 0) {
                             $location.search("startAt", spot);
-                            $location.search("skip", spot - 1);
                         } else {
                             $location.search("startAt", null);
-                            $location.search("skip", null);
                         }
                         break;
                 }

@@ -26,13 +26,10 @@ angular.module('quickApp')
         $scope.queryString = Query.param.get("name");
         $scope.params = {
             limit: Query.param.get("limit", "Number", 25),
-            skip: Query.param.get("skip", "Number", 0),
+            skip: $scope.startAt - 1,
             sort: Query.param.get("sort", "String", "dateCreated"),
             name__regex: (Query.param.get("name")) ? "/" + Query.param.get("name")+ "/i" : null,
         };
-        if ($scope.startAt) {
-            $scope.params.skip = $scope.startAt - 1;
-        }
         $scope.request.get($scope.url + "/" + $scope.type, $scope.params).then(
             function(response) {
                 switch ($scope.type) {
