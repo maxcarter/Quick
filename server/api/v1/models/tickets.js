@@ -42,6 +42,11 @@ var schema = new mongoose.Schema({
         default: "Unassigned",
         required: true
     },
+    priority: {
+        type: String,
+        default: "Low",
+        required: true
+    },
     assignee: {
         type: String,
         default: "Unassigned",

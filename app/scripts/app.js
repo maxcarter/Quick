@@ -35,6 +35,11 @@ angular
         controller: 'SearchCtrl',
         controllerAs: 'search'
       })
+      .when('/ticket/:id', {
+        templateUrl: 'views/ticket.html',
+        controller: 'TicketCtrl',
+        controllerAs: 'ticket'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',

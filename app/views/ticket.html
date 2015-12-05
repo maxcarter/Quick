@@ -1,0 +1,85 @@
+<div>
+    <h1 class="page-header">{{_ticket.name}} <small>{{_ticket.project}}</small></h1>
+    <div id="alert-container"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-info-circle"></i> Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{_ticket.type}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Priority</th>
+                                    <td>{{_ticket.priority}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{_ticket.status}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Project</th>
+                                    <td>{{_ticket.project}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Assignee</th>
+                                    <td>{{_ticket.assignee}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Creator</th>
+                                    <td>{{_ticket.creator}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Created</th>
+                                    <td>{{time.parse(_ticket.dateCreated)}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Updated</th>
+                                    <td>{{time.parse(_ticket.dateUpdated)}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-file-text"></i> Description</h3>
+        </div>
+        <div class="panel-body">
+            {{_ticket.body}}
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-paperclip"></i> Relations</h3>
+        </div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-comments"></i> Activity</h3>
+        </div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+</div>

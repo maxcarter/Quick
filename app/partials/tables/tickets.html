@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="ticket in tickets">
-                <td>{{ticket.name}}</td>
+                <td><a href="#/ticket/{{ticket._id}}">{{ticket.name | limitTo : 20}}{{ (ticket.name.length > 20) ? "..." : ""}}</a></td>
                 <td>{{ticket.assignee}}</td>
                 <td>{{ticket.type}}</td>
                 <td>{{ticket.status}}</td>
