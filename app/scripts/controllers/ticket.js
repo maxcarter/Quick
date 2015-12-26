@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('TicketCtrl', function($scope, $alert, $route, $routeParams, Request, Time, Banner, config, Ticket) {
+    .controller('TicketCtrl', function($scope, $routeParams, Time, Banner, Ticket) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -18,8 +18,7 @@ angular.module('quickApp')
         $scope.ticketFactory = Ticket;
         $scope.time = Time;
         $scope.id = $routeParams.id;
-        $scope.url = config.host + ":" + config.port + config.api;
-        Request.get($scope.url + "/tickets/" + $scope.id).then(
+        Ticket.get($scope.id).then(
             function success(response) {
                 $scope._ticket = response.data;
             }, Banner.error);
