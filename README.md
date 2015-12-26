@@ -15,7 +15,8 @@ npm install
 ## Server
 
 ```
-node server/server.js
+cd server
+node server.js
 ```
 
 ## Build
