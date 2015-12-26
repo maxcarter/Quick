@@ -8,8 +8,9 @@
     </ol>
     <div class="query-bar">
         <button class="btn btn-default" title="Edit"><i class="fa fa-pencil"></i></button>
-        <button class="btn btn-default" title="Start Progress"><i class="fa fa-play"></i></button>
-        <button class="btn btn-default" title="Resolve"><i class="fa fa-check"></i></button>
+        <button ng-show="_ticket.status !== 'In Progress'"class="btn btn-default" title="Start Progress" ng-click="ticketFactory.status(_ticket, 'In Progress')"><i class="fa fa-play"></i></button>
+        <button ng-show="_ticket.status === 'In Progress'"class="btn btn-default" title="Stop Progress" ng-click="ticketFactory.status(_ticket, 'Open')"><i class="fa fa-stop"></i></button>
+        <button class="btn btn-default" title="Resolve" ng-click="ticketFactory.status(_ticket, 'Resolved')"><i class="fa fa-check"></i></button>
         <button class="btn btn-default" title="Notify"><i class="fa fa-envelope"></i></button>
     </div>
     <div class="panel panel-primary">
