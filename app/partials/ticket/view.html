@@ -1,0 +1,105 @@
+<div>
+    <h1 class="page-header">{{_ticket.name}}</h1>
+    <div id="alert-container"></div>
+    <ol class="breadcrumb">
+        <li class="active">
+            <i class="fa fa-car"></i> <a href="#/project/{{_ticket.project}}">{{_ticket.project}}</a> / {{_ticket.name}}
+        </li>
+    </ol>
+    <div class="query-bar">
+        <button class="btn btn-default" title="Edit" ng-click="switchMode('edit')"><i class="fa fa-pencil"></i></button>
+        <button ng-show="_ticket.status !== 'In Progress'"class="btn btn-default" title="Start Progress" ng-click="ticketFactory.status(_ticket, 'In Progress')"><i class="fa fa-play"></i></button>
+        <button ng-show="_ticket.status === 'In Progress'"class="btn btn-default" title="Stop Progress" ng-click="ticketFactory.status(_ticket, 'Open')"><i class="fa fa-stop"></i></button>
+        <button class="btn btn-default" title="Resolve" ng-click="ticketFactory.status(_ticket, 'Resolved')"><i class="fa fa-check"></i></button>
+        <button class="btn btn-default" title="Notify"><i class="fa fa-envelope"></i></button>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#details">
+            <h3 class="panel-title"><i class="fa fa-info-circle"></i> Details</h3>
+        </div>
+        <div class="panel-collapse collapse in" id="details">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{_ticket.type}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Priority</th>
+                                    <td>{{_ticket.priority}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{_ticket.status}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Project</th>
+                                    <td>{{_ticket.project}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tags</th>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Assignee</th>
+                                    <td>{{_ticket.assignee}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Reporter</th>
+                                    <td>{{_ticket.reporter}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Creator</th>
+                                    <td>{{_ticket.creator}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Created</th>
+                                    <td>{{time.parse(_ticket.dateCreated)}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Updated</th>
+                                    <td>{{time.parse(_ticket.dateUpdated)}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-green">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#description">
+            <h3 class="panel-title"><i class="fa fa-file-text"></i> Description</h3>
+        </div>
+        <div class="panel-collapse collapse in" id="description">
+            {{_ticket.body}}
+        </div>
+    </div>
+    <div class="panel panel-orange">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#relations">
+            <h3 class="panel-title"><i class="fa fa-paperclip"></i> Relations</h3>
+        </div>
+        <div class="panel-collapse collapse" id="relations">
+            Panel content
+        </div>
+    </div>
+    <div class="panel panel-red">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#activity">
+            <h3 class="panel-title"><i class="fa fa-comments"></i> Activity</h3>
+        </div>
+        <div class="panel-collapse collapse" id="activity">
+            Panel content
+        </div>
+    </div>
+</div>

@@ -35,6 +35,10 @@ a.inverted:hover {
     }
 }
 
+.panel-collapse {
+    padding:20px;
+}
+
 
 /* Search */
 

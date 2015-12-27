@@ -1,0 +1,128 @@
+<div class="form">
+    <h1 class="page-header">Editing <small>{{editedTicket.name}}</small></h1>
+    <div id="alert-container"></div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="editedTicket.name">
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#details">
+            <h3 class="panel-title"><i class="fa fa-info-circle"></i> Details</h3>
+        </div>
+        <div class="panel-collapse collapse in" id="details">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Type</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.type">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Priority</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.priority">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Status</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.status">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Project</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.project">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Tags</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.tags">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Assignee</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.assignee">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Reporter</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.reporter">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Creator</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.creator">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Created</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.dateCreated">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Updated</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="editedTicket.dateUpdated">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-green">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#description">
+            <h3 class="panel-title"><i class="fa fa-file-text"></i> Description</h3>
+        </div>
+        <div class="panel-collapse collapse in" id="description">
+            <div class="form-group">
+                <label>Body</label>
+                <textarea rows="10" class="form-control" ng-model="editedTicket.body"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-orange">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#relations">
+            <h3 class="panel-title"><i class="fa fa-paperclip"></i> Relations</h3>
+        </div>
+        <div class="panel-collapse collapse" id="relations">
+            Panel content
+        </div>
+    </div>
+    <div class="panel panel-red">
+        <div class="panel-heading finger" data-toggle="collapse" data-target="#activity">
+            <h3 class="panel-title"><i class="fa fa-comments"></i> Activity</h3>
+        </div>
+        <div class="panel-collapse collapse" id="activity">
+            Panel content
+        </div>
+    </div>
+</div>
