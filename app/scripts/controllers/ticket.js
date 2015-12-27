@@ -20,6 +20,7 @@ angular.module('quickApp')
         $scope.id = $routeParams.id;
         $scope.query = Query;
         $scope.mode = Query.param.get("mode");
+
         Ticket.get($scope.id).then(
             function success(response) {
                 $scope._ticket = response.data;

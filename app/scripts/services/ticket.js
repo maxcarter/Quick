@@ -11,6 +11,10 @@ angular.module('quickApp')
     .factory('Ticket', function($q, $alert, $route, Request, Banner, config) {
         return {
             url: config.host + ":" + config.port + config.api + "/tickets",
+            //TODO: Refactor these into API calls
+            priorities: ["High", "Medium", "Low"],
+            types: ["Task", "Issue", "Order"],
+            statuses: ["Open", "In Progress", "Resolved", "Closed", "Awaiting Deployment"],
             get: function(id) {
                 var deferred = $q.defer();
                 var url = this.url + "/" + id;

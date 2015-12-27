@@ -17,7 +17,8 @@
                             <label>Type</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" ng-model="editedTicket.type">
+                            <select class="form-control" ng-model="editedTicket.type" ng-options="type as type for type in ticketFactory.types" ng-change="">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -25,7 +26,8 @@
                             <label>Priority</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" ng-model="editedTicket.priority">
+                            <select class="form-control" ng-model="editedTicket.priority" ng-options="priority as priority for priority in ticketFactory.priorities" ng-change="">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -33,7 +35,8 @@
                             <label>Status</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" ng-model="editedTicket.status">
+                           <select class="form-control" ng-model="editedTicket.status" ng-options="status as status for status in ticketFactory.statuses" ng-change="">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -104,7 +107,7 @@
         </div>
         <div class="panel-collapse collapse in" id="description">
             <div class="form-group">
-            	<text-angular ng-model="editedTicket.body"></text-angular>
+                <text-angular ng-model="editedTicket.body"></text-angular>
             </div>
         </div>
     </div>
