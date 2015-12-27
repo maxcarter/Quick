@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('TicketCtrl', function($scope, $routeParams, Time, Banner, Ticket, Query) {
+    .controller('TicketCtrl', function($scope, $routeParams, Time, Banner, Ticket, Api, Query) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -21,7 +21,7 @@ angular.module('quickApp')
         $scope.query = Query;
         $scope.mode = Query.param.get("mode");
 
-        Ticket.get($scope.id).then(
+        Api.tickets.get($scope.id).then(
             function success(response) {
                 $scope._ticket = response.data;
                 $scope.editedTicket = angular.copy(response.data);

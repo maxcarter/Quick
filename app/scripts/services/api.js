@@ -15,7 +15,7 @@ angular.module('quickApp')
                 endpoint: "/tickets",
                 get: function(id, params) {
                     var deferred = $q.defer();
-                    var url = host + this.endpoint + "/" + id;
+                    var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
                     Request.get(url).then(
                         function success(response) {
@@ -71,7 +71,7 @@ angular.module('quickApp')
                 endpoint: "/projects",
                 get: function(id, params) {
                     var deferred = $q.defer();
-                    var url = host + this.endpoint + "/" + id;
+                    var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
                     Request.get(url).then(
                         function success(response) {
@@ -127,7 +127,7 @@ angular.module('quickApp')
                 endpoint: "/sprints",
                 get: function(id, params) {
                     var deferred = $q.defer();
-                    var url = host + this.endpoint + "/" + id;
+                    var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
                     Request.get(url).then(
                         function success(response) {
@@ -199,7 +199,7 @@ angular.module('quickApp')
                 },
                 get: function(id, params) {
                     var deferred = $q.defer();
-                    var url = host + this.endpoint + "/" + id;
+                    var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
                     Request.get(url).then(
                         function success(response) {

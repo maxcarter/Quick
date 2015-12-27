@@ -8,45 +8,19 @@
  * Factory in the quickApp.
  */
 angular.module('quickApp')
-    .factory('Ticket', function($q, $alert, $route, Request, Banner, Query, Time, config) {
+    .factory('Ticket', function($q, $route, Banner, Query, Time, Api) {
         return {
-            url: config.host + ":" + config.port + config.api + "/tickets",
             //TODO: Refactor these into API calls
             priorities: ["High", "Medium", "Low"],
             types: ["Task", "Issue", "Order"],
             statuses: ["Open", "In Progress", "Resolved", "Closed", "Awaiting Deployment"],
-            get: function(id) {
-                var deferred = $q.defer();
-                var url = this.url + "/" + id;
-                Request.get(url).then(
-                    function success(response) {
-                        deferred.resolve(response);
-                    },
-                    function error(response) {
-                        deferred.reject(response);
-                    });
-                return deferred.promise;
-            },
-            update: function(id, data) {
-                var deferred = $q.defer();
-                var url = this.url + "/" + id;
-                data = (data) ? data : {};
-                Request.put(url, data).then(
-                    function success(response) {
-                        deferred.resolve(response);
-                    },
-                    function error(response) {
-                        deferred.reject(response);
-                    });
-                return deferred.promise;
-            },
             status: function(ticket, status) {
                 var id = ticket._id;
                 var data = {
                     status: (status) ? status : "Open",
                     dateUpdated: Time.now()
                 };
-                this.update(id, data).then(
+                Api.tickets.put(id, data).then(
                     function success() {
                         $route.reload();
                     }, Banner.error);
@@ -67,7 +41,7 @@ angular.module('quickApp')
                     comments: (ticket.comments) ? ticket.comments: undefined,
                     dateUpdated: Time.now()
                 };
-                this.update(id, data).then(
+                Api.tickets.put(id, data).then(
                     function success() {
                         Query.param.set('mode', null);
                     }, Banner.error);
