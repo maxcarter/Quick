@@ -129,8 +129,8 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-success">Save</button>
-            <button class="btn btn-primary">Cancel</button>
+            <button class="btn btn-success" ng-click="ticketFactory.save(editedTicket)">Save</button>
+            <button class="btn btn-primary" ng-click="query.param.set('mode', null);">Cancel</button>
             <button class="btn btn-danger">Delete</button>
         </div>
     </div>

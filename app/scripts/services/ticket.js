@@ -8,7 +8,7 @@
  * Factory in the quickApp.
  */
 angular.module('quickApp')
-    .factory('Ticket', function($q, $alert, $route, Request, Banner, config) {
+    .factory('Ticket', function($q, $alert, $route, Request, Banner, Query, Time, config) {
         return {
             url: config.host + ":" + config.port + config.api + "/tickets",
             //TODO: Refactor these into API calls
@@ -43,11 +43,34 @@ angular.module('quickApp')
             status: function(ticket, status) {
                 var id = ticket._id;
                 var data = {
-                    status: (status) ? status : "Open"
+                    status: (status) ? status : "Open",
+                    dateUpdated: Time.now()
                 };
                 this.update(id, data).then(
                     function success() {
                         $route.reload();
+                    }, Banner.error);
+            },
+            save: function(ticket) {
+                var deferred = $q.defer();
+                var id = ticket._id;
+                var data = {
+                    name: (ticket.name) ? ticket.name : undefined,
+                    type: (ticket.type) ? ticket.type : undefined,
+                    status: (ticket.status) ? ticket.status : undefined,
+                    project: (ticket.project) ? ticket.project : undefined,
+                    tags: (ticket.tags) ? ticket.tags : undefined,
+                    assignee: (ticket.assignee) ? ticket.assignee : undefined,
+                    reporter: (ticket.reporter) ? ticket.reporter : undefined,
+                    creator: (ticket.creator) ? ticket.creator : undefined,
+                    body: (ticket.body) ? ticket.body : "",
+                    relations: (ticket.relations) ? ticket.relations : undefined,
+                    comments: (ticket.comments) ? ticket.comments: undefined,
+                    dateUpdated: Time.now()
+                };
+                this.update(id, data).then(
+                    function success() {
+                        Query.param.set('mode', null);
                     }, Banner.error);
             }
         };
