@@ -1,5 +1,7 @@
 # Under Construction
 
+Note: This project is still in the development stage of its lifecycle and is not ready for usage.
+
 ---
 
 # Quick: The Agile Ticketing System
@@ -37,6 +39,11 @@ grunt
 grunt test
 ```
 
+## Features
+
+* Node.js REST API
+*
+
 ## Tech Specs
 
 * [Yeoman](http://yeoman.io/) scaffolding
@@ -66,3 +73,10 @@ Back-End:
 ```
 npm install --save-dev <Name of Package>
 ```
+## License
+
+![Creative Commons License](http://creativecommons.org/licenses/by-sa/4.0/)
+
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
