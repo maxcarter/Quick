@@ -7,7 +7,7 @@ var morgan = require('morgan');
 
 var config = require('./config');
 var app = express();
-var port = 3000;
+var port = config.port;
 
 mongoose.connect(config.database);
 
@@ -18,6 +18,7 @@ app.use(express.static('../dist'));
 app.use('/dev', express.static('../app')); 
 
 require('./api/api')(app);
+console.log("Connected to Quick API v0.1");
 
 app.listen(port);
-console.log("Hello World");
+console.log("Started Node.js server. Listening on port " + config.port);
