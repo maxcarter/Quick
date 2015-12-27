@@ -52,7 +52,6 @@ angular.module('quickApp')
                     }, Banner.error);
             },
             save: function(ticket) {
-                var deferred = $q.defer();
                 var id = ticket._id;
                 var data = {
                     name: (ticket.name) ? ticket.name : undefined,
