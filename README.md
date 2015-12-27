@@ -39,11 +39,6 @@ grunt
 grunt test
 ```
 
-## Features
-
-* Node.js REST API
-*
-
 ## Tech Specs
 
 * [Yeoman](http://yeoman.io/) scaffolding
