@@ -24,7 +24,6 @@ npm install
 cd server
 node server.js
 ```
-5. Use your browser to navigate to Quick: http://localhost:3000
 
 ## Build
 
