@@ -30,7 +30,7 @@ angular.module('quickApp')
             update: function(id, data) {
                 var deferred = $q.defer();
                 var url = this.url + "/" + id;
-                var data = (data) ? data : {};
+                data = (data) ? data : {};
                 Request.put(url, data).then(
                     function success(response) {
                         deferred.resolve(response);
@@ -46,7 +46,7 @@ angular.module('quickApp')
                     status: (status) ? status : "Open"
                 };
                 this.update(id, data).then(
-                    function success(response) {
+                    function success() {
                         $route.reload();
                     }, Banner.error);
             }
