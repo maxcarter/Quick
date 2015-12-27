@@ -18,15 +18,11 @@ angular.module('quickApp')
         $scope.ticketFactory = Ticket;
         $scope.time = Time;
         $scope.id = $routeParams.id;
+        $scope.query = Query;
         $scope.mode = Query.param.get("mode");
         Ticket.get($scope.id).then(
             function success(response) {
                 $scope._ticket = response.data;
                 $scope.editedTicket = angular.copy(response.data);
             }, Banner.error);
-
-        $scope.switchMode = function (mode) {
-            $scope.mode = mode;
-            Query.param.set("mode", "edit");
-        };
     });
