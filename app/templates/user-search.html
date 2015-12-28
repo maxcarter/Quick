@@ -4,7 +4,12 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="{{$id}}">
         <li class="dropdown-wrapper">
-            <input type="text" class="form-control" placeholder="Type to Search..." ng-model="query" ng-change="search(query)" ng-model-options="{debounce: 1000}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Type to Search..." ng-model="query" ng-change="search(query)" ng-model-options="{debounce: 1000}">
+                <div title="Unassign" class="input-group-addon btn btn-danger" ng-click="select({username: 'Unassigned'})">
+                    <i class="fa fa-trash"></i>
+                </div>
+            </div>
             <div class="searching" ng-show="searching"><i class="fa fa-spinner fa-spin"></i> Searching</div>
             <div class="searching" ng-show="noMatches">No matches found</div>
             <div class="searching" ng-show="error">
@@ -22,11 +27,13 @@
 user-search ul {
     padding: 0px;
 }
+
 user-search li {
     list-style: none;
     padding: 5px !important;
     font-size: 12px;
 }
+
 user-search .dropdown-toggle {
     text-align: left;
     display: block;
@@ -57,28 +64,34 @@ user-search .dropdown-toggle:hover,
 user-search ul.dropdown-menu {
     width: 100%;
 }
+
 user-search .searching {
     text-align: center;
     padding-top: 10px;
     color: #777777;
 }
+
 user-search li.dropdown-header:hover {
     color: #777777 !important;
     background: #ffffff !important;
     cursor: default !important;
 }
+
 user-search li.dropdown-header:hover:after {
     content: ""!important;
 }
+
 user-search ul.searchResults {
     max-height: 200px;
     overflow: auto;
 }
+
 user-search ul.searchResults li:hover {
     cursor: pointer;
     background: #5CB85C;
     color: #ffffff;
 }
+
 user-search ul.searchResults li:hover:after {
     content: "\f067";
     font-family: FontAwesome;
