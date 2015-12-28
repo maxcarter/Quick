@@ -69,6 +69,35 @@ Back-End:
 npm install --save-dev <Name of Package>
 ```
 
+### Modes
+
+Quick is bundled with two modes: Dev-Mode and Prod-Mode. 
+
+**Dev-Mode**
+
+
+`http://localhost:3000/dev`
+
+
+Dev-Mode is mapped to the `app` directory and contains editable source code. In this mode you can edit source code and preview the changes directly in the browser without building the project.
+
+
+**Prod-Mode**
+
+
+`http://localhost:3000`
+
+
+Prod-Mode is mapped to the `dist` directory. This mode is the compiled, compressed and tested version of the tool that should be used for production instances. 
+
+
+**Switching from Dev to Prod**
+
+As a standard, all new features should be made in Dev-Mode then compiled into Prod-Mode once completed. To switch from Dev-Mode to Prod-Mode simply [Build the project](https://github.com/maxcarter/Quick#build).
+
+
+
+
 ### API
 
 Quick is built on top of an ExpressJS RESTful API using [Node-Restful](https://github.com/baugarten/node-restful) with integrations from [JSON Web Tokens](https://github.com/auth0/node-jsonwebtoken) and [bcrypt](https://www.npmjs.com/package/bcrypt).
@@ -88,7 +117,7 @@ All user passwords stored in Quick's database are hashed and salted using the [b
 
 #### Authenticate a User
 
-To request authentication send the following payload to `/users/authentication` in a POST request.
+To request authentication, send the following payload to `/users/authentication` in a POST request.
 
 ```
 {
