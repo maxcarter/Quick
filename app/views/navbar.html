@@ -45,7 +45,7 @@
     <!-- /.container-fluid -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
+            <li>
                 <a href="#/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
@@ -54,8 +54,7 @@
             <li>
                 <a href="" data-toggle="collapse" data-target="#demo"><i class="fa fa-list"></i> Active Tickets <i class="fa fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
-                    <li><a href="">Dropdown Item</a></li>
-                    <li><a href="#">Dropdown Item</a></li>
+                    <li ng-repeat="ticket in activeTickets"><a href="#/ticket/{{ticket._id}}">{{ticket.name}}</a></li>
                 </ul>
             </li>
             <li>

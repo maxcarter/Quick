@@ -8,7 +8,7 @@
  * Controller of the quickApp
  */
 angular.module('quickApp')
-    .controller('NavCtrl', function($scope, $location, $cookies, $rootScope, Request, Login, config) {
+    .controller('NavCtrl', function($scope, $location, $cookies, $rootScope, Request, Login, Api, config) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -34,6 +34,21 @@ angular.module('quickApp')
                 });
         };
 
+        $scope.activeTickets = function(username) {
+            var params = {
+                assignee: username,
+                status: "In Progress",
+                limit: 5
+            };
+            Api.tickets.search(params).then(
+                function success(response) {
+                    $scope.activeTickets = response.data;
+                },
+                function error(response) {
+                    $scope.activeTickets = [];
+                });
+        };
+
         $rootScope.$on("login-done", function() {
             $scope.getUser(config.username, config.token);
         });
@@ -44,6 +59,7 @@ angular.module('quickApp')
                     $location.path('/login');
                 } else {
                     $scope.getUser(config.username, config.token);
+                    $scope.activeTickets(config.username);
                 }
             }
         });
