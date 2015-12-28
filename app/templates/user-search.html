@@ -1,0 +1,87 @@
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle form-control" type="button" id="{{$id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{tsModel}}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="{{$id}}">
+        <li class="dropdown-wrapper">
+            <input type="text" class="form-control" placeholder="Type to Search..." ng-model="query" ng-change="search(query)" ng-model-options="{debounce: 1000}">
+            <div class="searching" ng-show="searching"><i class="fa fa-spinner fa-spin"></i> Searching</div>
+            <div class="searching" ng-show="noMatches">No matches found</div>
+            <div class="searching" ng-show="error">
+                <i class="fa fa-exclamation-circle text-danger"></i>
+                <span class="text-danger">Error: {{error.statusText}}</span>
+            </div>
+            <ul class="searchResults" ng-show="users.length > 0">
+                <li class="dropdown-header">Showing {{users.length}} Results</li>
+                <li ng-repeat="user in users" ng-click="select(user)">{{user.username}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<style>
+user-search ul {
+    padding: 0px;
+}
+user-search li {
+    list-style: none;
+    padding: 5px !important;
+    font-size: 12px;
+}
+user-search .dropdown-toggle {
+    text-align: left;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+user-search .dropdown-toggle:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    float: right;
+}
+
+user-search .dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+    background: #ffffff !important;
+}
+
+user-search ul.dropdown-menu {
+    width: 100%;
+}
+user-search .searching {
+    text-align: center;
+    padding-top: 10px;
+    color: #777777;
+}
+user-search li.dropdown-header:hover {
+    color: #777777 !important;
+    background: #ffffff !important;
+    cursor: default !important;
+}
+user-search li.dropdown-header:hover:after {
+    content: ""!important;
+}
+user-search ul.searchResults {
+    max-height: 200px;
+    overflow: auto;
+}
+user-search ul.searchResults li:hover {
+    cursor: pointer;
+    background: #5CB85C;
+    color: #ffffff;
+}
+user-search ul.searchResults li:hover:after {
+    content: "\f067";
+    font-family: FontAwesome;
+    float: right;
+}
+</style>

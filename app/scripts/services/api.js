@@ -17,7 +17,7 @@ angular.module('quickApp')
                     var deferred = $q.defer();
                     var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
-                    Request.get(url).then(
+                    Request.get(url, params).then(
                         function success(response) {
                             deferred.resolve(response);
                         },
@@ -73,7 +73,7 @@ angular.module('quickApp')
                     var deferred = $q.defer();
                     var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
-                    Request.get(url).then(
+                    Request.get(url, params).then(
                         function success(response) {
                             deferred.resolve(response);
                         },
@@ -129,7 +129,7 @@ angular.module('quickApp')
                     var deferred = $q.defer();
                     var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
-                    Request.get(url).then(
+                    Request.get(url, params).then(
                         function success(response) {
                             deferred.resolve(response);
                         },
@@ -197,11 +197,24 @@ angular.module('quickApp')
                         });
                     return deferred.promise;
                 },
+                search: function(params) {
+                    var deferred = $q.defer();
+                    var url = host + this.endpoint;
+                    params = (params) ? params : {};
+                    Request.get(url, params).then(
+                        function success(response) {
+                            deferred.resolve(response);
+                        },
+                        function error(response) {
+                            deferred.reject(response);
+                        });
+                    return deferred.promise;
+                },
                 get: function(id, params) {
                     var deferred = $q.defer();
                     var url = (id) ? host + this.endpoint + "/" + id : host + this.endpoint;
                     params = (params) ? params : {};
-                    Request.get(url).then(
+                    Request.get(url, params).then(
                         function success(response) {
                             deferred.resolve(response);
                         },

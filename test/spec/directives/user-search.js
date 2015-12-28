@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: typeSearch', function () {
+describe('Directive: userSearch', function () {
 
   // load the directive's module
   beforeEach(module('quickApp'));
@@ -13,8 +13,8 @@ describe('Directive: typeSearch', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<type-search></type-search>');
+    element = angular.element('<user-search></user-search>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the typeSearch directive');
+    expect(element.text()).toBe('this is the userSearch directive');
   }));
 });
