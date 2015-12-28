@@ -19,7 +19,7 @@ angular.module('quickApp')
         $scope.url = config.host + ":" + config.port + config.api;
         $scope.path = $location.path();
 
-        $scope.getUser = function(username, token) {
+        $scope.getUser = function(username) {
             var params = {
                 username: username,
                 limit: 1
@@ -44,7 +44,7 @@ angular.module('quickApp')
                 function success(response) {
                     $scope.activeTickets = response.data;
                 },
-                function error(response) {
+                function error() {
                     $scope.activeTickets = [];
                 });
         };
@@ -53,12 +53,12 @@ angular.module('quickApp')
             $scope.getUser(config.username, config.token);
         });
 
-        $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        $rootScope.$on('$routeChangeStart', function() {
             if ($scope.path !== "/login") {
                 if (!Login.checkToken()) {
                     $location.path('/login');
                 } else {
-                    $scope.getUser(config.username, config.token);
+                    $scope.getUser(config.username);
                     $scope.activeTickets(config.username);
                 }
             }
