@@ -68,6 +68,46 @@ Back-End:
 ```
 npm install --save-dev <Name of Package>
 ```
+
+### API
+
+Quick is built on top of an ExpressJS RESTful API using [Node-Restful](https://github.com/baugarten/node-restful) with integrations from [JSON Web Tokens](https://github.com/auth0/node-jsonwebtoken) and [bcrypt](https://www.npmjs.com/package/bcrypt).
+
+See the [Node-Restful Documentation](https://github.com/baugarten/node-restful/blob/master/README.md#built-in-filters) for more information about the built-in filters associated with the API.
+
+#### Security
+
+**Route Authentication**
+
+Quick's API requires authentication before allowing access to routes. Learn how to [Authenticate a User](https://github.com/maxcarter/Quick#authenticate-a-user). Once a user is authenticated, a [JSON Web Token](https://github.com/auth0/node-jsonwebtoken) is returned and stored in front-end session and as a cookie in your browser for future logins. This token is then passed as a parameter during each request to the backend to give access to the API.
+
+
+**Password Hashing**
+
+All user passwords stored in Quick's database are hashed and salted using the [bcrypt](https://www.npmjs.com/package/bcrypt) Blowfish Algorithm. 
+
+#### Authenticate a User
+
+To request authentication send the following payload to `/users/authentication` in a POST request.
+
+```
+{
+	"username": <Your Username>,
+	"password": <Your Passowrd>
+}
+```
+
+Response:
+
+```
+{
+	"message": "Enjoy your token!",
+	"status": 200,
+	"success": true,
+	"token": "TheToken"
+}
+```
+
 ## License
 
 ![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
