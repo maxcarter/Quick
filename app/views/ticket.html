@@ -1,6 +1,9 @@
 <div ng-switch="mode">
     <div ng-switch-when="edit">
-        <div ng-include="'partials/ticket/edit.html'"></div>
+        <div ng-include="'partials/ticket/modify.html'"></div>
+    </div>
+    <div ng-switch-when="create">
+        <div ng-include="'partials/ticket/modify.html'"></div>
     </div>
     <div ng-switch-default>
         <div ng-include="'partials/ticket/view.html'"></div>

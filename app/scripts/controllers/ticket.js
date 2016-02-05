@@ -21,9 +21,15 @@ angular.module('quickApp')
         $scope.query = Query;
         $scope.mode = Query.param.get("mode");
 
-        Api.tickets.get($scope.id).then(
-            function success(response) {
-                $scope._ticket = response.data;
-                $scope.editedTicket = angular.copy(response.data);
-            }, Banner.error);
+        if($scope.id) {
+            Api.tickets.get($scope.id).then(
+                function success(response) {
+                    $scope._ticket = response.data;
+                    $scope.editedTicket = angular.copy(response.data);
+                }, Banner.error);
+        } else {
+            $scope.mode = "create";
+            $scope._ticket = {};
+            $scope.editedTicket = {};
+        }
     });

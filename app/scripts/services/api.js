@@ -52,7 +52,7 @@ angular.module('quickApp')
                         });
                     return deferred.promise;
                 },
-                post: function(id, data, params) {
+                post: function(data, params) {
                     var deferred = $q.defer();
                     var url = host + this.endpoint;
                     data = (data) ? data : {};

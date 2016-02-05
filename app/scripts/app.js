@@ -41,6 +41,11 @@ angular
         controller: 'TicketCtrl',
         controllerAs: 'ticket'
       })
+      .when('/ticket', {
+        templateUrl: 'views/ticket.html',
+        controller: 'TicketCtrl',
+        controllerAs: 'ticket'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
